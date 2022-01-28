@@ -324,3 +324,6 @@ function sumBySign(previous, current) {
 
 
 let testArray3 = ["la", "vergogna", "casa", "dannazione", "ha", "pippo", "preso", "secchio", "fuoco"];
+
+
+console.log(testArray3.reduce((p, c, i) => i % 2 !== 0 ? p : p + " " + c));
