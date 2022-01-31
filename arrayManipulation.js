@@ -489,6 +489,13 @@ function checkIfStringNotContainsAVowel3(string) {
 }
 
 
+function checkIfStringContainsAVowel3(string) {
+
+    // let vowels = ["a", "e", "i", "o", "u"];
+    // return !vowels.some((v) => string.includes(v));
+    return ["a", "e", "i", "o", "u"].some((v) => string.includes(v));
+}
+
 
 // let numberArray = [2, 6, 8, 12]
 
