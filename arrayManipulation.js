@@ -530,3 +530,104 @@ console.log(stringOfCon);
 
 
 console.log([...new Set(arrayOfConsonants(string))].join(""))
+
+
+function fromStringToVowelArray(string){
+    return [...string].filter(c => ["a", "e", "i", "o", "u"].some(v => v === c.toLowerCase()))
+}
+
+console.log(array1.reduce((p, c) => [...p, ...fromStringToVowelArray(c)], []));
+
+
+function fromStringToConsonantsString(string){
+    let consonantsArray = [...string.toLowerCase()].filter(c => !["a", "e", "i", "o", "u"].some(v => v === c.toLowerCase()));
+    return consonantsArray.join("");
+}
+
+console.log(array1.reduce((p, c) => [...new Set([...(p + fromStringToConsonantsString(c))])].join(""), ""));
+
+
+
+array1.forEach((e) => console.log(e));
+
+
+for (const string of array1) {
+    console.log(string.toUpperCase());
+}
+
+
+array1.forEach((e) => console.log(e.toUpperCase()));
+
+
+console.log(array.sort());
+
+console.log(array1.sort());
+
+
+let stud1 = {name:"pippo", age:12, gender: "m"};
+
+let stud2 = {name:"pluto", age:18 , gender: "m"};
+
+let stud3 = {name:"topolina", age:13, gender: "f"};
+
+let stud4 = {name:"paperina", age:18, gender: "f"};
+
+let students = [stud1, stud2, stud3, stud4];
+
+
+console.log(students.sort(compareStudents3));
+
+
+function compareStudents(st1, st2){
+    if (st1.age > st2.age) {
+        return 1;
+    }
+
+    if (st1.age < st2.age) {
+        return -1;
+    }
+
+    if (st1.age === st2.age) {
+        return 0;
+    }
+}
+
+
+function compareStudents2(st1, st2){
+    return st1.gender.localeCompare(st2.gender);
+}
+
+function compareStudents3(st1, st2) {
+    return st2.age - st1.age
+}
+
+
+
+let athlete1 = {name: "giovanni", surname:"landi", position: 2}
+let athlete2 = {name: "lorena", surname:"landi", position: 2}
+let athlete3 = {name: "pippo", surname:"barbigli", position: 1}
+let athlete4 = {name: "simona", surname:"perri", position: 3}
+let athlete5 = {name: "elmo", surname:"recalcati", position: 2}
+
+let athletes = [athlete1, athlete2, athlete3, athlete4, athlete5];
+
+
+
+console.log([...athletes]);
+
+
+athletes.sort((s1, s2)=> s1.position - s2.position)
+
+function compareBySurname(stud1, stud2) {
+    
+}
+
+function compareByPosition(stud1, stud2) {
+    
+}
+
+function compareByPositionPlus(stud1, stud2) {
+    
+}
+
+
