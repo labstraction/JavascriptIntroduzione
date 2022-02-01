@@ -618,16 +618,84 @@ console.log([...athletes]);
 
 athletes.sort((s1, s2)=> s1.position - s2.position)
 
+
+
 function compareBySurname(stud1, stud2) {
-    
+    return stud1.surname.localeCompare(stud2.surname);
 }
 
 function compareByPosition(stud1, stud2) {
-    
+    return stud1.position - stud2.position;
 }
 
 function compareByPositionPlus(stud1, stud2) {
-    
+    if (stud1.position === stud2.position) {
+        if (stud1.surname === stud2.surname) {
+            return stud1.name.localeCompare(stud2.name);
+        } else{
+            return stud1.surname.localeCompare(stud2.surname)
+        }
+    } else {
+        return stud1.position - stud2.position;
+    }
 }
 
 
+function switchCase(string) {
+
+    const firstChar = string[0];
+    const firstCharLower = firstChar.toLowerCase()
+
+    const remainingString = string.substring(1);
+    const remainingStringUpper = remainingString.toUpperCase();
+
+    return firstCharLower + remainingStringUpper;
+
+}
+
+
+console.log(array1.map(switchCase));
+
+
+console.log(array1.map((s) => s[0].toLowerCase() + s.substring(1).toUpperCase()));
+
+
+console.log(array1.reduce((p, c)=>[...p, switchCase(c)], []));
+
+// p [] c Pippo => [pIPPO]
+
+// p [pIPPO] c Pluto => [pIPPO, pLUTO]
+
+// p [pIPPO, pLUTO] c Paperino => [pIPPO, pLUTO, pAPERINO]
+
+
+function checkIfContainsR(string){
+    return string.toLowerCase().includes("r")
+}
+
+
+function checkIfContainsString(string, stringTocheck){
+    return string.toLowerCase().includes(stringTocheck)
+}
+
+
+function checkIfContainsString2(stringTocheck){
+    return (string) => string.toLowerCase().includes(stringTocheck)
+}
+
+
+const checkR = checkIfContainsString2("r");
+
+console.log(checkR("pippo"));
+
+
+const checkP = checkIfContainsString2("p");
+
+console.log(checkP("pippo"));
+
+
+console.log(array1.filter(checkIfContainsString2("p")));
+
+console.log("generico",array1.filter((s) => checkIfContainsString(s, "p")));
+
+console.log(array1.reduce((p, c) => checkIfContainsR(c) ? [...p, c] : p, []))
